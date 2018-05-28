@@ -3,5 +3,10 @@ section.about {
   background: linear-gradient(#e8e7e8, #fff);
 }
 
-section:nth-child(even) {
+section.about  .container {
+  margin-top: 239px;
+}
+
+section.about .container img.albums {
+  max-width: 520px;
 }
