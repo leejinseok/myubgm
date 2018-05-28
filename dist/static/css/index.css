@@ -4,9 +4,12 @@ section.about {
 }
 
 section.about  .container {
-  margin-top: 239px;
 }
 
-section.about .container img.albums {
-  max-width: 520px;
+section.about .container .col-6 img.albums {
+  max-width: 720px;
+}
+
+section.about .container .col-6 {
+  height: 666px;
 }

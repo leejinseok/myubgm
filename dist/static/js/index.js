@@ -1,3 +1,6 @@
 $(document).ready(function() {
-	$('#fullpage').fullpage();
+  var options = {
+    fitToSection: false
+  };
+	$('#fullpage').fullpage(options);
 });
