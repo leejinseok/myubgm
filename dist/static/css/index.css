@@ -1,3 +1,8 @@
+/*
+=====================================
+SECTION about
+=====================================
+*/
 section.about {
   box-sizing: border-box;
   background: linear-gradient(#e8e7e8, #fff);
@@ -27,4 +32,45 @@ section.about .container .col-6 .wrapper-text .inner-text {
   font-size: 22px;
   line-height: 1.5;
   color: #959595;
+}
+
+/*
+=====================================
+CAROUSEL
+=====================================
+*/
+.wrapper-carousel {
+  border: 1px solid red;
+  width:800px;
+  height: 300px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#carousel {
+  width:800px;
+  height: 300px;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#carousel img {
+  display: hidden; /* hide images until carousel prepares them */
+  cursor: pointer; /* not needed if you wrap carousel items in links */
+}
+
+/*
+=====================================
+SECTION randomMusic
+=====================================
+*/
+section.randomMusic {
+
+}
+
+section.randomMusic .wrapper-carousel {
+}
+
+section.randomMusic .wrapper-carousel #carousel {
 }
