@@ -6,6 +6,7 @@
     <title>MYUBGM</title>
     <link rel="stylesheet" href="/static/css/base.css">
     <link rel="stylesheet" href="/static/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="/static/fullPage/dist/jquery.fullPage.css" />
     <% for (i = 0; i < css.length; i++) { %>
         <link rel="stylesheet" href="<%= css[i] %>">
     <% } %>
@@ -14,8 +15,12 @@
     <script src="/static/js/angular.min.js"></script>
     <script src="/static/js/prefixfree.min.js"></script>
     <script src="/static/js/base.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type="text/javascript" src="/static/fullPage/dist/jquery.fullPage.js"></script>
+    
     <% for (i = 0; i < js.length; i++) { %>
         <script src="<%= js[i] %>"></script>
     <% } %>
 </head>
 <body>
+  

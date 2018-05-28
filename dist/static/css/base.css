@@ -16,6 +16,7 @@ nav {
   left: 0;
   top: 0;
   border-bottom: 1px solid #fff !important;
+  z-index: 1;
 }
 
 nav .wrapper-logo {
