@@ -1,0 +1,14 @@
+{
+  "name": "myubgm",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/leejinseok/myubgm.git",
+  "author": "이진석 <sonaky47@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "gulp": "^3.9.1",
+    "gulp-ejs": "^3.1.2",
+    "gulp-html-prettify": "^0.0.1",
+    "gulp-webserver": "^0.9.1"
+  }
+}

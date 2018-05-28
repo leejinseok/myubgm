@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html ng-app="muybgmApp">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>MYUBGM</title>
+    <link rel="stylesheet" href="/static/css/base.css">
+    <link rel="stylesheet" href="/static/css/base.css">
+    <% for (i = 0; i < css.length; i++) { %>
+        <link rel="stylesheet" href="<%= css[i] %>">
+    <% } %>
+    <script
+    src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <script src="/static/js/angular.min.js"></script>
+    <script src="/static/js/prefixfree.min.js"></script>
+    <script src="/static/js/base.js"></script>
+    <% for (i = 0; i < js.length; i++) { %>
+        <script src="<%= js[i] %>"></script>
+    <% } %>
+</head>
+<body>

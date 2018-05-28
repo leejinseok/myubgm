@@ -1,0 +1,20 @@
+.container {
+  width: 1660px;
+}
+
+nav .wrapper-logo {
+  text-align: center;
+}
+nav .wrapper-logo .logo {
+  width: 202px;
+}
+
+nav ul.menu {
+  display: table;
+  margin: 0 auto;
+  padding-left: 0;
+}
+
+nav ul.menu li {
+  display: table-cell;
+}
