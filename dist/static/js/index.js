@@ -1,6 +1,7 @@
 $(document).ready(function() {
   var options = {
-    fitToSection: false
+    menu: '#menu',
+    anchors: ['firstPage', 'secondPage', 'thirdPage', 'fourthPage', 'lastPage'],
   };
 	$('#fullpage').fullpage(options);
 });

@@ -26,34 +26,35 @@
 <body>
 
 
-  <main id="fullpage">
-    <section class="section about">
-      <nav>
-        <div class="wrapper-logo">
-          <a href="/">
-            <img src="/static/images/global/logo.png" class="logo">
-          </a>
-        </div>
+  <nav>
+    <div class="wrapper-logo">
+      <a href="/">
+        <img src="/static/images/global/logo.png" class="logo">
+      </a>
+    </div>
 
-        <ul class="menu">
-          <li>
-            <a href="#">ABOUT</a>
-          </li>
-          <li>
-            <a href="#">RANDOM MUSIC</a>
-          </li>
-          <li>
-            <a href="#">CATEGORY</a>
-          </li>
-          <li>
-            <a href="#">
+    <ul class="menu" id="menu">
+      <li data-menuanchor="firstPage">
+        <a href="#firstPage" class="active">ABOUT</a>
+      </li>
+      <li data-menuanchor="secondPage">
+        <a href="#secondPage">RANDOM MUSIC</a>
+      </li>
+      <li data-menuanchor="thirdPage">
+        <a href="#thirdPage">CATEGORY</a>
+      </li>
+      <li data-menuanchor="fourthPage">
+        <a href="#fourthPage">
 
         RECOMMANDATION
 
       </a>
-          </li>
-        </ul>
-      </nav>
+      </li>
+    </ul>
+  </nav>
+
+  <main id="fullpage">
+    <section class="section about">
       <div class="container center clearfix">
         <div class="col-6">
           <img src="/static/images/about/about_albums.png" class="albums">
