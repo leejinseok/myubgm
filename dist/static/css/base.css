@@ -55,3 +55,17 @@ nav ul.menu li a:hover,
 nav ul.menu li a.active {
   color: #3a3a3a;
 }
+
+/* 창크기 조절 */
+nav {
+  height: 138px; 
+}
+
+nav .wrapper-logo .logo {
+  margin-top: 20px;
+  width: 130px;
+}
+
+nav ul.menu {
+  margin-top: 40px;
+}

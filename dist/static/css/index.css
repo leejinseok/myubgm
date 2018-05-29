@@ -47,7 +47,7 @@ CAROUSEL
 
 #carousel {
   width:600px;
-  height: 300px;
+  height: 627px;
   position: relative;
   margin-left: auto;
   margin-right: auto;
@@ -71,4 +71,23 @@ section.randomMusic .wrapper-carousel {
 }
 
 section.randomMusic .wrapper-carousel #carousel {
+}
+
+section.randomMusic .wrapper-music-description {
+  margin-top: 20px;
+}
+
+section.randomMusic .wrapper-music-description h3 {
+  text-align: center;
+}
+
+section.randomMusic .wrapper-music-description h3.sub-title {
+  font-size: 12px;
+  font-weight: 200;
+  margin-top: 6px;
+}
+
+/* 창크기 조절  */
+.wrapper-carousel {
+  margin-top: 0;
 }

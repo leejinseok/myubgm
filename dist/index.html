@@ -7,6 +7,8 @@
   <title>MYUBGM</title>
   <link rel="stylesheet" href="/static/css/base.css">
   <link rel="stylesheet" href="/static/css/reset.css">
+  <link rel="stylesheet" type="text/css" href="/static/css/audio.css" />
+  <link rel="stylesheet" type="text/css" href="/static/css/audio_ie.css" />
   <link rel="stylesheet" type="text/css" href="/static/fullPage/dist/jquery.fullPage.css" />
 
   <link rel="stylesheet" href="/static/css/index.css">
@@ -81,7 +83,7 @@
     <section class="section randomMusic">
       <div class="wrapper-carousel">
         <div id="carousel" class="center">
-          <img src="/static/images/random_music/1.jpg">
+          <img src="/static/images/random_music/1.jpg" data-music-src="/static/music/Official_National_Anthem.mp3" data-main-title="Official_National_Anthem" data-sub-title="Official National Anthem Sub">
           <img src="/static/images/random_music/2.jpg">
           <img src="/static/images/random_music/3.jpg">
           <img src="/static/images/random_music/4.jpg">
@@ -90,6 +92,20 @@
           <img src="/static/images/random_music/7.jpg">
           <img src="/static/images/random_music/8.jpg">
           <img src="/static/images/random_music/9.jpg">
+        </div>
+      </div>
+
+      <div class="wrapper-music-description">
+        <h3 class="main-title"></h3>
+        <h3 class="sub-title"></h3>
+      </div>
+
+      <div class="wrapper-player">
+        <audio controls id="randomMusic-audio">
+          <source id="randomMusic-audio-source" src="">
+        </audio>
+        <div class="time-machine">
+          <input type="range" id="randomMusic-seekbar" class="seekbar">
         </div>
       </div>
     </section>
