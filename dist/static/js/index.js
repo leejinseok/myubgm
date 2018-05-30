@@ -2,12 +2,31 @@ $(document).ready(function() {
   handleFullPage();
   handleCarousel();
   handleAudioRandomMusic(0);
+  handleCategorySwiper();
 });
+
+var isMouseWheel = false;
+function handleCategorySwiper () {
+  var swiper = new Swiper('section.category .swiper-container', {
+    slidesPerView: 'auto',
+    spaceBetween: 30,
+    mousewheel: true,
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+  });
+}
 
 function handleFullPage () {
   var options = {
     menu: '#menu',
     anchors: ['about', 'randomMusic', 'category', 'recommandation'],
+    onLeave: function(index, nextIndex, direction){
+      if ((nextIndex === 4 || nextIndex === 2) && isMouseWheel){
+        return false;
+      }
+    }
   };
   $('#fullpage').fullpage(options);
 }
