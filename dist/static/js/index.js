@@ -18,7 +18,13 @@ function handleCarousel () {
     flankingItems: 4,
     separation: 250,
     sizeMultiplier: 0.8,
-    opacityMultiplier: 1
+    opacityMultiplier: 1,
+    clickedCenter: function ($clickedItem) {
+    },
+    movedToCenter: function ($newCenterItem) {
+      var index = $('#carousel img').index($newCenterItem);
+      handleAudioRandomMusic(index);
+    }
   };
   carousel = $("#carousel").waterwheelCarousel(option);
 }
