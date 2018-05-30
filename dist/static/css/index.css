@@ -87,7 +87,26 @@ section.randomMusic .wrapper-music-description h3.sub-title {
   margin-top: 6px;
 }
 
+section.randomMusic .wrapper-player .time-machine {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+section.randomMusic .wrapper-player .time-machine span {
+  font-size: 12px;
+}
+
+section.randomMusic .wrapper-player .time-machine span:first-child {
+  margin-right: 10px;
+}
+
+section.randomMusic .wrapper-player .time-machine span:last-child {
+  margin-left: 10px;
+}
+
 /* 창크기 조절  */
 .wrapper-carousel {
   margin-top: 0;
 }
+

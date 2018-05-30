@@ -84,6 +84,8 @@ function writeStyle (obj) {
 var audio = null;
 var seekbar = null;
 function handleAudioRandomMusic (index) {
+  var currentTimeSpan = $('section.randomMusic #randomMusic_currentTime');
+  var duration = $('section.randomMusic #randomMusic_duration');
   var cover = $('section.randomMusic #carousel img').eq(index);
   var data = cover.data();
   var src = data.musicSrc;
@@ -103,6 +105,7 @@ function handleAudioRandomMusic (index) {
   audio.onloadeddata = function () {
     seekbar.max = audio.duration;
     audio.currentTime = 0;
+    duration.html(secondSet(Math.floor(audio.duration)));
     rangeInit();
   }
 
@@ -111,6 +114,8 @@ function handleAudioRandomMusic (index) {
     if (current_time == audio.duration) { // 만약에 사운드가 끝나면 다시 처음으로
         this.currentTime = 0;
     }
+
+    currentTimeSpan.html(secondSet(current_time));
 
     seekbar.value = current_time;
     var rangeInterval = Number(seekbar.getAttribute('max') - seekbar.getAttribute('min'));
@@ -123,6 +128,7 @@ function handleAudioRandomMusic (index) {
 
   seekbar.onchange = function () {
     audio.currentTime = this.value;
+    currentTimeSpan.html(secondSet(this.value));
   };
 }
 
