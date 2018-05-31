@@ -5,7 +5,7 @@ $(document).ready(function() {
   handleCategorySwiper();
 });
 
-var isMouseWheel = false;
+var isStopFullPageMouseWheel = false;
 function handleCategorySwiper () {
   var swiper = new Swiper('section.category .swiper-container', {
     slidesPerView: 'auto',
@@ -23,7 +23,7 @@ function handleFullPage () {
     menu: '#menu',
     anchors: ['about', 'randomMusic', 'category', 'recommandation'],
     onLeave: function(index, nextIndex, direction){
-      if ((nextIndex === 4 || nextIndex === 2) && isMouseWheel){
+      if ((nextIndex === 4 || nextIndex === 2) && isStopFullPageMouseWheel){
         return false;
       }
     }
