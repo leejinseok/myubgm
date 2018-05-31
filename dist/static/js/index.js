@@ -20,16 +20,17 @@ function handleCategoryModalSwiper () {
 var audioCategory = null;
 var seekbarCategory = null;
 function handleAudioCategoryMusic () {
-  var currentTimeSpan = $('section.category #category_currentTime');
-  var duration = $('section.category #category_duration');
-  var cover = $('section.category #carousel img').eq(index);
+  var currentTimeSpan = $('modal.category #category_currentTime');
+  var duration = $('modal.category #category_duration');
+  var cover = $('modal.category img').eq(index);
+
   var data = cover.data();
   var src = data.musicSrc;
   var mainTitle = data.mainTitle;
   var subTitle = data.subTitle;
 
-  $('section.category .wrapper-music-description .main-title').html(mainTitle);
-  $('section.category .wrapper-music-description .sub-title').html(subTitle);
+  $('modal.category .wrapper-music-description .main-title').html(mainTitle);
+  $('modal.category .wrapper-music-description .sub-title').html(subTitle);
 
   audioCategory = document.getElementById('category-audio');
   seekbarCategory = document.getElementById('category-seekbar');

@@ -53,9 +53,9 @@
                   </h4>
 
                   <div class="playStatus">
-                      <audio controls id="category-audio">
-                        <source id="category-audio-source" src="">
-                      </audio>
+                    <audio controls id="category-audio">
+                      <source id="category-audio-source" src="">
+                    </audio>
                     <span id="category_currentTime">0:00</span>
                     <input type="range" id="category-seekbar" class="seekbar">
                     <span id="category_duration"></span>
@@ -64,7 +64,33 @@
               </div>
             </div>
             <div class="playlist-table">
-
+              <table>
+                <thead>
+                  <tr>
+                    <th>번호</th>
+                    <th>곡명</th>
+                    <th>아티스트명</th>
+                    <th>즐겨찾기</th>
+                    <th>인기</th>
+                    <th>재생/다운</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      1
+                    </td>
+                    <td>여시주의</td>
+                    <td>Red Velvet (레드벨벳)</td>
+                    <td>★</td>
+                    <td>♥♥♥♥♡</td>
+                    <td>
+                      <img src="/static/images/global/playbtn.png" alt="">
+                      <img src="/static/images/global/download.png" alt="">
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
           </div>
         </div>
