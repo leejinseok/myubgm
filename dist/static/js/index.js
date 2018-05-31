@@ -1,9 +1,45 @@
 $(document).ready(function() {
   handleFullPage();
   handleCarousel();
+  handleBodyClickForHideModal();
   handleAudioRandomMusic(0);
   handleCategorySwiper();
+  handleCategoryMusicClick();
 });
+
+function handleCategoryModalSwiper () {
+  var swiper = new Swiper('.modal.category .swiper-container', {
+    navigation: {
+      nextEl: '.modal.category .swiper-button-next',
+      prevEl: '.modal.category .swiper-button-prev',
+    },
+  });
+}
+
+function handleCategoryMusicClick () {
+  var img = $('section.category .container .swiper-container .swiper-wrapper .swiper-slide .wrapper div img');
+  var modal = $('.modal.category');
+  img.click(function () {
+    modal.addClass('active');
+    handleCategoryModalSwiper();
+
+    var setFullPageScrollDisable = setInterval(function () {
+      if (isStopFullPageMouseWheel) {
+        clearInterval(setFullPageScrollDisable);
+      }
+      isStopFullPageMouseWheel = true;
+    }, 100);
+  });
+}
+
+function handleBodyClickForHideModal () {
+  $('html, body').click(function (e) {
+    var targetId = e.target.id;
+    if (targetId === 'slideGame' || targetId === 'slideAnimation' || targetId === 'slideMovie') {
+      hideModal();
+    }
+  });
+}
 
 var isStopFullPageMouseWheel = false;
 function handleCategorySwiper () {
@@ -180,3 +216,88 @@ function togglePlay (status) {
     return;
   }
 }
+
+app.controller('mainCtrl', function ($scope) {
+  var categoryMusic = {
+    game: [
+      {
+        src: '/static/images/category/game/1.jpg',
+      },
+      {
+        src: '/static/images/category/game/2.jpg',
+      },
+      {
+        src: '/static/images/category/game/3.jpg',
+      },
+      {
+        src: '/static/images/category/game/4.jpg',
+      },
+      {
+        src: '/static/images/category/game/5.jpg',
+      },
+      {
+        src: '/static/images/category/game/6.jpg',
+      },
+      {
+        src: '/static/images/category/game/7.jpg',
+      },
+      {
+        src: '/static/images/category/game/8.jpg',
+      },
+    ],
+    animation: [
+      {
+        src: '',
+      },
+      {
+        src: '',
+      },
+      {
+        src: '',
+      },
+      {
+        src: '',
+      },
+      {
+        src: '',
+      },
+      {
+        src: '',
+      },
+      {
+        src: '',
+      },
+      {
+        src: '',
+      },
+    ],
+    movie: [
+      {
+        src: '',
+      },
+      {
+        src: '',
+      },
+      {
+        src: '',
+      },
+      {
+        src: '',
+      },
+      {
+        src: '',
+      },
+      {
+        src: '',
+      },
+      {
+        src: '',
+      },
+      {
+        src: '',
+      },
+    ]
+  };
+
+
+});

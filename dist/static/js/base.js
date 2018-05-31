@@ -20,3 +20,8 @@ function secondSet (time) {
   }
   return response_str;
 }
+
+function hideModal () {
+  var modal = $('.modal');
+  modal.removeClass('active');
+}

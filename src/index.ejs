@@ -2,109 +2,42 @@
 <% include ./partials/header.ejs %>
 <% include ./partials/nav.ejs %>
 
-<main id="fullpage">
-  <section class="section about">
-    <div class="container center clearfix">
-      <div class="col-6">
-        <img src="/static/images/about/about_albums.png" class="albums">
-      </div>
-      <div class="col-6">
-        <div class="wrapper-text">
-          <div class="inner-text">
-              MYUBGM은 Music + BackGroundMusic의 줄임말로 <br>
-              음악과 배경음악을 주로 다루는 것을 나타내었습니다 <br><br>
-   
-             MYUBGM에서는 주로 애니메이션, 영화, 게임에서 나오는 <br>
-             음악과 배경음악들을 소개하며 동시에 앨범 구매를 지원합니다 <br><br>
-             
-             RANDOM MUSIC에서 다양한 노래들을 랜덤으로 들을 수 있으며 <br>
-             CATEGORY에서는 장르 분류별 노래들을 들을 수 있습니다 <br>
-             RECOMMANDATION 에서는 주 마다 인기있던 음악들을 추천합니다
+
+
+<main id="fullpage" ng-controller="mainCtrl">
+  <% include ./partials/index/about.ejs %>
+  <% include ./partials/index/randomMusic.ejs %>
+  <% include ./partials/index/category.ejs %>
+  <% include ./partials/index/recommandation.ejs %>
+</main>
+
+<div class="modal category">
+  <div class="swiper-container">
+    <div class="swiper-container">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide" id="slideGame">
+          <div class="playlist">
+
+          </div>
+        </div>
+        <div class="swiper-slide" id="slideAnimation">
+          <div class="playlist">
+
+          </div>
+        </div>
+        <div class="swiper-slide" id="slideMovie">
+          <div class="playlist">
+
           </div>
         </div>
       </div>
+      <!-- Add Arrows -->
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
     </div>
-  </section>
+  </div>
+</div>
 
-  <section class="section randomMusic">
-    <div class="container center">
-      <div class="wrapper-carousel">
-        <div id="carousel" class="center">
-          <img src="/static/images/random_music/1.jpg" 
-            data-music-src="/static/music/Official_National_Anthem.mp3"
-            data-main-title="Official_National_Anthem"
-            data-sub-title="Official National Anthem Sub">
-          <img src="/static/images/random_music/2.jpg"
-            data-music-src="/static/music/Official_National_Anthem.mp3"
-            data-main-title="Official_National_Anthem"
-            data-sub-title="Official National Anthem Sub"> >
-          <img src="/static/images/random_music/3.jpg"
-            data-music-src="/static/music/Official_National_Anthem.mp3"
-            data-main-title="Official_National_Anthem"
-            data-sub-title="Official National Anthem Sub">>
-          <img src="/static/images/random_music/4.jpg"
-            data-music-src="/static/music/Official_National_Anthem.mp3"
-            data-main-title="Official_National_Anthem"
-            data-sub-title="Official National Anthem Sub">>
-          <img src="/static/images/random_music/5.jpg"
-            data-music-src="/static/music/Official_National_Anthem.mp3"
-            data-main-title="Official_National_Anthem"
-            data-sub-title="Official National Anthem Sub">>
-          <img src="/static/images/random_music/6.jpg"
-            data-music-src="/static/music/Official_National_Anthem.mp3"
-            data-main-title="Official_National_Anthem"
-            data-sub-title="Official National Anthem Sub">>
-          <img src="/static/images/random_music/7.jpg"
-            data-music-src="/static/music/Official_National_Anthem.mp3"
-            data-main-title="Official_National_Anthem"
-            data-sub-title="Official National Anthem Sub">>
-          <img src="/static/images/random_music/8.jpg"
-            data-music-src="/static/music/Official_National_Anthem.mp3"
-            data-main-title="Official_National_Anthem"
-            data-sub-title="Official National Anthem Sub">>
-          <img src="/static/images/random_music/9.jpg"
-            data-music-src="/static/music/Official_National_Anthem.mp3"
-            data-main-title="Official_National_Anthem"
-            data-sub-title="Official National Anthem Sub">>
-        </div>
-      </div>
-  
-      <div class="wrapper-music-description">
-        <h3 class="main-title"></h3>
-        <h3 class="sub-title"></h3>
-      </div>
-  
-      <div class="wrapper-player">
-        <audio controls id="randomMusic-audio">
-          <source id="randomMusic-audio-source" src="">
-        </audio>
-        <div class="time-machine">
-          <span id="randomMusic_currentTime">0:00</span>
-          <input type="range" id="randomMusic-seekbar" class="seekbar">
-          <span id="randomMusic_duration"></span>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <section class="section category" >
-    <div class="container center" >
-      <div class="swiper-container" onmouseover="isStopFullPageMouseWheel=true" onmouseout="isStopFullPageMouseWheel=false">
-        <!-- Add Pagination -->
-        <div class="swiper-pagination"></div>
-        <div class="swiper-wrapper">
-          <div class="swiper-slide">Slide 1</div>
-          <div class="swiper-slide">Slide 2</div>
-          <div class="swiper-slide">Slide 3</div>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <section class="section recommandation">
-    <div class="container center">
-      <h2>Recommandation</h2>
-    </div>
-  </section>
-</main>
 <% include ./partials/footer.ejs %>

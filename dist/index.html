@@ -10,7 +10,7 @@
   <link rel="stylesheet" type="text/css" href="/static/css/audio.css" />
   <link rel="stylesheet" type="text/css" href="/static/css/audio_ie.css" />
   <link rel="stylesheet" type="text/css" href="/static/fullPage/dist/jquery.fullPage.css" />
-  <link rel="stylesheet" type="text/css" href="/static/swiper-4.3.0/dist/css/swiper.min.css" />
+  <link rel="stylesheet" type="text/css" href="/static/swiper-4.0.7/dist/css/swiper.min.css" />
 
   <link rel="stylesheet" href="/static/css/index.css">
 
@@ -20,7 +20,7 @@
   <script src="/static/js/base.js"></script>
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   <script type="text/javascript" src="/static/fullPage/dist/jquery.fullPage.js"></script>
-  <script type="text/javascript" src="/static/swiper-4.3.0/dist/js/swiper.min.js"></script>
+  <script type="text/javascript" src="/static/swiper-4.0.7/dist/js/swiper.min.js"></script>
   <script type="text/javascript" src="https://bkosborne.com/sites/all/themes/bootstrap_brian/js/jquery.waterwheelCarousel.min.js?p96zma"></script>
 
   <script src="/static/js/index.js"></script>
@@ -57,7 +57,9 @@
     </ul>
   </nav>
 
-  <main id="fullpage">
+
+
+  <main id="fullpage" ng-controller="mainCtrl">
     <section class="section about">
       <div class="container center clearfix">
         <div class="col-6">
@@ -80,7 +82,6 @@
         </div>
       </div>
     </section>
-
     <section class="section randomMusic">
       <div class="container center">
         <div class="wrapper-carousel">
@@ -114,25 +115,150 @@
         </div>
       </div>
     </section>
-
     <section class="section category">
       <div class="container center">
         <div class="swiper-container" onmouseover="isStopFullPageMouseWheel=true" onmouseout="isStopFullPageMouseWheel=false">
-          <!-- Add Pagination -->
           <div class="swiper-pagination"></div>
           <div class="swiper-wrapper">
-            <div class="swiper-slide">Slide 1</div>
-            <div class="swiper-slide">Slide 2</div>
-            <div class="swiper-slide">Slide 3</div>
+            <div class="swiper-slide ">
+              <div class="wrapper clearfix">
+                <div class="a">
+                  <div class="title">
+                    <h3>GAME</h3>
+                    <p class="description">Original sound</p>
+                    <p class="updated">Updated every WED</p>
+                  </div>
+                </div>
+                <div class="b">
+                  <img src="/static/images/category/game/1.jpg">
+                  <img src="/static/images/category/game/2.jpg">
+                </div>
+                <div class="a">
+                  <img src="/static/images/category/game/6.jpg">
+                </div>
+                <div class="c">
+                  <img src="/static/images/category/game/3.jpg">
+                </div>
+                <div class="c">
+                  <img src="/static/images/category/game/4.jpg">
+                </div>
+                <div class="c">
+                  <img src="/static/images/category/game/5.jpg">
+                </div>
+                <div class="c">
+                  <img src="/static/images/category/game/7.jpg">
+                </div>
+                <div class="c">
+                  <img src="/static/images/category/game/8.jpg">
+                </div>
+              </div>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="wrapper clearfix">
+                <div class="a">
+                  <div class="title">
+                    <h3>Animation</h3>
+                    <p class="description">Original sound</p>
+                    <p class="updated">Updated every WED</p>
+                  </div>
+                </div>
+                <div class="b">
+                  <img src="/static/images/category/animation/1.jpg">
+                  <img src="/static/images/category/animation/2.jpg">
+                </div>
+                <div class="a">
+                  <img src="/static/images/category/animation/6.jpg">
+                </div>
+                <div class="c">
+                  <img src="/static/images/category/animation/3.jpg">
+                </div>
+                <div class="c">
+                  <img src="/static/images/category/animation/4.jpg">
+                </div>
+                <div class="c">
+                  <img src="/static/images/category/animation/5.jpg">
+                </div>
+                <div class="c">
+                  <img src="/static/images/category/animation/7.jpg">
+                </div>
+                <div class="c">
+                  <img src="/static/images/category/animation/8.jpg">
+                </div>
+              </div>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="wrapper clearfix">
+                <div class="a">
+                  <div class="title">
+                    <h3>Movie</h3>
+                    <p class="description">Original sound</p>
+                    <p class="updated">Updated every WED</p>
+                  </div>
+                </div>
+                <div class="b">
+                  <img src="/static/images/category/movie/1.jpg">
+                  <img src="/static/images/category/movie/2.jpg">
+                </div>
+                <div class="a">
+                  <img src="/static/images/category/movie/6.jpg">
+                </div>
+                <div class="c">
+                  <img src="/static/images/category/movie/3.jpg">
+                </div>
+                <div class="c">
+                  <img src="/static/images/category/movie/4.jpg">
+                </div>
+                <div class="c">
+                  <img src="/static/images/category/movie/5.jpg">
+                </div>
+                <div class="c">
+                  <img src="/static/images/category/movie/7.jpg">
+                </div>
+                <div class="c">
+                  <img src="/static/images/category/movie/8.jpg">
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </section>
-
     <section class="section recommandation">
       <div class="container center">
         <h2>Recommandation</h2>
       </div>
     </section>
   </main>
+
+  <div class="modal category">
+    <div class="swiper-container">
+      <div class="swiper-container">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide" id="slideGame">
+            <div class="playlist">
+
+            </div>
+          </div>
+          <div class="swiper-slide" id="slideAnimation">
+            <div class="playlist">
+
+            </div>
+          </div>
+          <div class="swiper-slide" id="slideMovie">
+            <div class="playlist">
+
+            </div>
+          </div>
+        </div>
+        <!-- Add Arrows -->
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+      </div>
+    </div>
+  </div>
+
+
+
 
