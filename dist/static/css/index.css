@@ -124,7 +124,7 @@ section.category .container {
 
 section.category .container .swiper-container {
   padding-top: 50px;
-  margin-top: 110px;
+  margin-top: 138px;
 }
 
 section.category .container .swiper-container .swiper-wrapper {
@@ -239,6 +239,64 @@ section.category .container .swiper-container .swiper-wrapper .swiper-slide .wra
   width: 930px;
   height: 800px;
   background: linear-gradient(#040404, #636362);
+  padding: 50px;
+  box-sizing: border-box;
+}
+
+.modal.category .swiper-container .swiper-wrapper .swiper-slide .playlist .image-and-musicData .col-6 {
+
+}
+
+.modal.category .swiper-container .swiper-wrapper .swiper-slide .playlist .image-and-musicData .image img {
+  max-width: 100%;
+}
+
+.modal.category .swiper-container .swiper-wrapper .swiper-slide .playlist .image-and-musicData .musicData {
+  height: 415px;
+}
+
+.modal.category .swiper-container .swiper-wrapper .swiper-slide .playlist .image-and-musicData .musicData h2 {
+  font-size: 36px;
+  color: #DDDDDD;
+  text-align: left;
+}
+
+.modal.category .swiper-container .swiper-wrapper .swiper-slide .playlist .image-and-musicData .musicData .stars-and-price {
+  margin-top: 18px;
+}
+
+.modal.category .swiper-container .swiper-wrapper .swiper-slide .playlist .image-and-musicData .musicData .stars-and-price span {
+  color: #BBBBBB;
+  font-size: 16px;
+}
+
+.modal.category .swiper-container .swiper-wrapper .swiper-slide .playlist .image-and-musicData .musicData .stars-and-price span.stars {
+  float: left;
+}
+
+.modal.category .swiper-container .swiper-wrapper .swiper-slide .playlist .image-and-musicData .musicData .stars-and-price span.price {
+  float: right;
+}
+
+.modal.category .swiper-container .swiper-wrapper .swiper-slide .playlist .image-and-musicData .musicData .description {
+  text-align: left;
+  color: #BBBBBB;
+  font-size: 12px;
+  line-height: 1.5;
+  margin-top: 34px;
+}
+
+.modal.category .swiper-container .swiper-wrapper .swiper-slide .playlist .image-and-musicData .musicData .audioPlay h4 {
+  font-size: 12px;
+  color: #bbb;
+  margin-top: 44px;
+}
+
+.modal.category .swiper-container .swiper-wrapper .swiper-slide .playlist .image-and-musicData .musicData .audioPlay .playStatus {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
 }
 
 * {
@@ -251,3 +309,12 @@ section.category .container .swiper-container .swiper-wrapper .swiper-slide .wra
   margin-top: 0;
 }
 
+
+section.randomMusic .wrapper-carousel {
+  margin-top: 138px;
+}
+ 
+
+section.about .container {
+  margin-top: 138px;
+} 

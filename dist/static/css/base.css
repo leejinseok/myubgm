@@ -57,8 +57,11 @@ nav ul.menu li a.active {
 }
 
 /* 창크기 조절 */
+
+
 nav {
   height: 138px; 
+  padding: 0 !important;
 }
 
 nav .wrapper-logo .logo {

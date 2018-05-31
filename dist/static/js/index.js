@@ -13,7 +13,59 @@ function handleCategoryModalSwiper () {
       nextEl: '.modal.category .swiper-button-next',
       prevEl: '.modal.category .swiper-button-prev',
     },
+    simulateTouch: false
   });
+}
+
+var audioCategory = null;
+var seekbarCategory = null;
+function handleAudioCategoryMusic () {
+  var currentTimeSpan = $('section.category #category_currentTime');
+  var duration = $('section.category #category_duration');
+  var cover = $('section.category #carousel img').eq(index);
+  var data = cover.data();
+  var src = data.musicSrc;
+  var mainTitle = data.mainTitle;
+  var subTitle = data.subTitle;
+
+  $('section.category .wrapper-music-description .main-title').html(mainTitle);
+  $('section.category .wrapper-music-description .sub-title').html(subTitle);
+
+  audioCategory = document.getElementById('category-audio');
+  seekbarCategory = document.getElementById('category-seekbar');
+
+  audioCategory.src = src;
+  audioCategory.load();
+  // audio.play();
+
+  audioCategory.onloadeddata = function () {
+    seekbarCategory.max = audio.duration;
+    audioCategory.currentTime = 0;
+    duration.html(secondSet(Math.floor(audioCategory.duration)));
+    rangeInit();
+  }
+
+  audioCategory.ontimeupdate = function () {
+    var current_time = this.currentTime;
+    if (current_time == audioCategory.duration) { // 만약에 사운드가 끝나면 다시 처음으로
+        this.currentTime = 0;
+    }
+
+    currentTimeSpan.html(secondSet(current_time));
+
+    seekbarCategory.value = current_time;
+    var rangeInterval = Number(seekbarCategory.getAttribute('max') - seekbarCategory.getAttribute('min'));
+    var rangePercent = (Number(seekbarCategory.value) + Math.abs(seekbarCategory.getAttribute('min'))) / rangeInterval * 100;
+    writeStyle({
+        id: 'category-seekbar',
+        percent: rangePercent
+    });
+  }
+
+  seekbarCategory.onchange = function () {
+    audioCategory.currentTime = this.value;
+    currentTimeSpan.html(secondSet(this.value));
+  };
 }
 
 function handleCategoryMusicClick () {
@@ -22,7 +74,7 @@ function handleCategoryMusicClick () {
   img.click(function () {
     modal.addClass('active');
     handleCategoryModalSwiper();
-
+    handleAudioCategoryMusic();
     var setFullPageScrollDisable = setInterval(function () {
       if (isStopFullPageMouseWheel) {
         clearInterval(setFullPageScrollDisable);
