@@ -284,6 +284,8 @@ section.category .container .swiper-container .swiper-wrapper .swiper-slide .wra
   font-size: 12px;
   line-height: 1.5;
   margin-top: 34px;
+  height: 160px;
+  overflow-y: auto;
 }
 
 .modal.category .swiper-container .swiper-wrapper .swiper-slide .playlist .image-and-musicData .musicData .audioPlay h4 {
@@ -296,7 +298,49 @@ section.category .container .swiper-container .swiper-wrapper .swiper-slide .wra
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-top: 18px;
+}
+
+.modal.category .swiper-container .swiper-wrapper .swiper-slide .playlist .image-and-musicData .musicData .audioPlay .playStatus span {
+  font-size: 10px;
+  color: #bbb;
+  margin-right: 10px;
+}
+
+.modal.category .swiper-container .swiper-wrapper .swiper-slide .playlist .image-and-musicData .musicData .audioPlay .playStatus span:last-child {
+  margin-left: 10px;
+}
+
+.modal.category .swiper-container .swiper-wrapper .swiper-slide .playlist .image-and-musicData .musicData .audioPlay .play-and-download {
+  margin-top: 20px;
+}
+
+.modal.category .swiper-container .swiper-wrapper .swiper-slide .playlist .image-and-musicData .musicData .audioPlay .play-and-download img {
+  margin-right: 3px;
+  margin-left: 3px;
+}
+
+.modal.category .swiper-container .swiper-wrapper .swiper-slide .playlist .playlist-table {
   
+}
+
+.modal.category .swiper-container .swiper-wrapper .swiper-slide .playlist .playlist-table table {
+  width: 100%;
+  font-size: 14px;
+  border: 0;
+  border-collapse: collapse;
+}
+
+.modal.category .swiper-container .swiper-wrapper .swiper-slide .playlist .playlist-table table tr {
+
+}
+
+.modal.category .swiper-container .swiper-wrapper .swiper-slide .playlist .playlist-table table tr td,
+.modal.category .swiper-container .swiper-wrapper .swiper-slide .playlist .playlist-table table tr th {
+  vertical-align: middle;
+  padding: 10px 0;
+  color: #EFEFEF;
+  font-weight: 200;
 }
 
 * {

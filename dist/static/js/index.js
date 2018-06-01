@@ -20,17 +20,18 @@ function handleCategoryModalSwiper () {
 var audioCategory = null;
 var seekbarCategory = null;
 function handleAudioCategoryMusic () {
-  var currentTimeSpan = $('modal.category #category_currentTime');
-  var duration = $('modal.category #category_duration');
-  var cover = $('modal.category img').eq(index);
+  var currentTimeSpan = $('.modal.category #category_currentTime');
+  var duration = $('.modal.category #category_duration');
+  // var cover = $('modal.category img').eq(index);
 
-  var data = cover.data();
-  var src = data.musicSrc;
-  var mainTitle = data.mainTitle;
-  var subTitle = data.subTitle;
+  // var data = cover.data();
+  // var src = data.musicSrc;
+  // var mainTitle = data.mainTitle;
+  // var subTitle = data.subTitle;
+  var src = '/static/music/That_Kid_in_Fourth_Grade_Who_Really_Liked_the_Denver_Broncos.mp3';
 
-  $('modal.category .wrapper-music-description .main-title').html(mainTitle);
-  $('modal.category .wrapper-music-description .sub-title').html(subTitle);
+  $('modal.category .wrapper-music-description .main-title').html('타이틀');
+  $('modal.category .wrapper-music-description .sub-title').html('서브타이틀');
 
   audioCategory = document.getElementById('category-audio');
   seekbarCategory = document.getElementById('category-seekbar');
