@@ -26,7 +26,7 @@ function handleCategoryModalSwiper () {
       nextEl: '.modal.category .swiper-button-next',
       prevEl: '.modal.category .swiper-button-prev',
     },
-    simulateTouch: false
+    simulateTouch: false,
   });
 }
 

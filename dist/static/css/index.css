@@ -64,7 +64,7 @@ SECTION randomMusic
 =====================================
 */
 section.randomMusic {
-
+  background: linear-gradient(#e8e7e8, #fff);
 }
 
 section.randomMusic .wrapper-carousel {
@@ -116,6 +116,10 @@ section.randomMusic .wrapper-player .time-machine span:last-child {
 SECTION category
 =====================================
 */
+section.category {
+  background: linear-gradient(#e8e7e8, #fff);
+}
+
 section.category .container {
   height: 100%;
   display: flex;
@@ -125,6 +129,7 @@ section.category .container {
 section.category .container .swiper-container {
   padding-top: 50px;
   margin-top: 138px;
+  padding-right: 10px;
 }
 
 section.category .container .swiper-container .swiper-wrapper {
@@ -219,6 +224,11 @@ section.category .container .swiper-container .swiper-wrapper .swiper-slide .wra
   float: left;
 }
 
+/*
+=====================================
+modal category
+=====================================
+*/
 .modal.category {
 
 }
@@ -399,6 +409,53 @@ section.category .container .swiper-container .swiper-wrapper .swiper-slide .wra
 
 .modal.category .swiper-container .swiper-button-next {
   left: calc(50% + (930px/2) + 40px);
+}
+
+/*
+=====================================
+SECTION recommandation
+=====================================
+*/
+
+section.recommandation {
+  background: linear-gradient(#e8e7e8, #fff);
+}
+
+section.recommandation .container {
+  background: #fff;
+  border-radius: 30px;
+  height: 600px;
+  box-shadow: 0 1px 10px 1px #dbdbdb;
+  margin-top: 50px;
+  padding-top: 72px;
+}
+
+section.recommandation .container > h3 {
+  font-size: 22px;
+  text-align: center;
+  font-weight: bold;
+  color: #A5A5A5;
+}
+
+section.recommandation .container > p {
+  font-size: 10px;
+  text-align: center;
+  margin-top: 10px;
+  color: #A5A5A5;
+}
+
+section.recommandation .container .wrapper {
+  width: 100%;
+  max-width: 100%;
+  margin-top: 100px;
+}
+
+section.recommandation .container .wrapper [class*=col] {
+
+}
+
+section.recommandation .container .wrapper [class*=col] img {
+  max-width: 100%;
 }
 
 * {
