@@ -11,10 +11,10 @@ $(document).ready(function() {
 function handleCategoryPlayBtnClick () {
   var playBtn = $('.modal.category .playbtn');
   var tableTr = $('.modal.category .playlist-table table tr');
+  var slide = $('.modal.category .swiper-slider');
   playBtn.click(function () {
     tableTr.removeClass('active');
     $(this).parents('tr').addClass('active');
-
     var data = $(this).data();
     handleAudioCategoryMusic(data);
   })
@@ -48,14 +48,15 @@ function handleAudioCategoryMusic (data) {
   data = data ? data : {
     src: '/static/music/That_Kid_in_Fourth_Grade_Who_Really_Liked_the_Denver_Broncos.mp3',
     title: '여시주의',
-    artist: 'Red Velvet (레드벨벳)'
+    artist: 'Red Velvet (레드벨벳)',
+    index: 0
   };
 
   $('.modal.category .playlist .image-and-musicData .musicData .audioPlay .title').html(data.title);
   $('.modal.category .playlist .image-and-musicData .musicData .audioPlay .artist').html(data.artist);
 
   audioCategory = document.getElementById('category-audio');
-  seekbarCategory = document.getElementById('category-seekbar');
+  seekbarCategory = document.getElementsByClassName('category-seekbar')[data.index];
 
   audioCategory.src = data.src;
   audioCategory.load();
