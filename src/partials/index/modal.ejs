@@ -5,7 +5,9 @@
   <div class="swiper-container">
     <div class="swiper-container">
       <div class="swiper-wrapper">
-        <div class="swiper-slide" id="slideGame">
+
+        <% for (i = 0; i < categoryMusics.length; i++) { %>
+        <div class="swiper-slide" id="<%= categoryMusics[i].id %>">
           <div class="playlist">
             <div class="image-and-musicData clearfix">
               <div class="col-6 image">
@@ -34,11 +36,140 @@
                 <div class="audioPlay">
                   <h4>
                     <span class="title">
-                      여시주의
                     </span>
                     -
                     <span class="artist">
-                      Red Valvet (레드벨벳)
+                    </span>
+                  </h4>
+
+                  <div class="playStatus">
+                    <span id="category_currentTime">0:00</span>
+                    <input type="range" id="category-seekbar" class="seekbar">
+                    <span id="category_duration"></span>
+                  </div>
+
+                  <div class="play-and-download">
+                    <img src="/static/images/global/playbtn.png" onclick="playCategoryMusic();">
+                    <img src="/static/images/global/download.png" onclick="downloadCategoryMusic();">
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="playlist-table">
+              <table>
+                <thead>
+                  <tr>
+                    <th>번호</th>
+                    <th>곡명</th>
+                    <th>아티스트명</th>
+                    <th>즐겨찾기</th>
+                    <th>인기</th>
+                    <th>재생/다운</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% for (j = 0; j < categoryMusics[i].list.length; j++) { %>
+                    <tr>
+                        <td>
+                          <%= j + 1 %>
+                        </td>
+                        <td><%= categoryMusics[i].list[j].title %></td>
+                        <td><%= categoryMusics[i].list[j].artist %></td>
+                        <td>★</td>
+                        <td>♥♥♥♥♡</td>
+                        <td class="playAndDownload">
+                          <img
+                            class="playbtn" 
+                            src="/static/images/global/playbtn.png"
+                            data-src="<%= categoryMusics[i].list[j].src %>"
+                            data-title="<%= categoryMusics[i].list[j].title %>"
+                            data-artist="<%= categoryMusics[i].list[j].artist %>">
+                          <a href="<%= categoryMusics[i].list[j].src %>" download>
+                            <img src="/static/images/global/download.png">
+                          </a>
+                        </td>
+                      </tr>
+                  <% } %>
+                  <!-- <tr>
+                    <td>
+                      1
+                    </td>
+                    <td>여시주의</td>
+                    <td>Red Velvet (레드벨벳)</td>
+                    <td>★</td>
+                    <td>♥♥♥♥♡</td>
+                    <td class="playAndDownload">
+                      <img
+                        class="playbtn" 
+                        src="/static/images/global/playbtn.png"
+                        data-src="/static/music/That_Kid_in_Fourth_Grade_Who_Really_Liked_the_Denver_Broncos.mp3"
+                        data-title="여시주의"
+                        data-artist="Red Velvet (레드벨벳)">
+                      <a href="/static/music/That_Kid_in_Fourth_Grade_Who_Really_Liked_the_Denver_Broncos.mp3" download>
+                        <img src="/static/images/global/download.png">
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      2
+                    </td>
+                    <td>텔레몬스터</td>
+                    <td>Red Velvet (레드벨벳)</td>
+                    <td>★</td>
+                    <td>♥♥♥♥♡</td>
+                    <td class="playAndDownload">
+                      <img
+                        class="playbtn" 
+                        src="/static/images/global/playbtn.png"
+                        data-src="/static/music/The_First_Noel.mp3"
+                        data-title="텔레몬스터"
+                        data-artist="Red Velvet (레드벨벳)">
+                        <a href="/static/music/The_First_Noel.mp3" download>
+                          <img src="/static/images/global/download.png">
+                        </a>
+                    </td>
+                  </tr> -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <% } %>
+        <!-- 
+          <div class="swiper-slide" id="slideGame">
+          <div class="playlist">
+            <div class="image-and-musicData clearfix">
+              <div class="col-6 image">
+                <img src="/static/images/category/modal/1.jpg">
+              </div>
+              <div class="col-6 musicData">
+                <h2 class="title">TELEMONSTER</h2>
+                <div class="stars-and-price clearfix">
+                  <span class="stars">
+                    ★★★★☆ 4.0
+                  </span>
+                  <span class="price">
+                    6500원
+                  </span>
+                </div>
+                <div class="description">
+                  눈알열매와 혓바닥 이끼가 빛나는 오그라숲, <br>
+                  피라냐가 우글거리는 이빨연못 옆에 몬스터들이 살고 있는 <br>
+                  고꾸라 나무가 있다! <br><br>
+                  
+                  어느날 이곳에 나타난 의문의 신종 몬스터 포포.<br>
+                  몬스터들과 친구가 되고 싶은 포포는 자신의 능력을 뽐내는데.<br>
+                  텔레몬스터 포포가 펼치는 텔레포트 능력으로 <br>
+                  오그라 숲을 넘어 TV속 세상까지 침입하는 천방지축 몬스터들!
+                </div>
+                <div class="audioPlay">
+                  <h4>
+                    <span class="title">
+                    </span>
+                    -
+                    <span class="artist">
                     </span>
                   </h4>
 
@@ -84,7 +215,9 @@
                         data-src="/static/music/That_Kid_in_Fourth_Grade_Who_Really_Liked_the_Denver_Broncos.mp3"
                         data-title="여시주의"
                         data-artist="Red Velvet (레드벨벳)">
-                      <img src="/static/images/global/download.png">
+                      <a href="/static/music/That_Kid_in_Fourth_Grade_Who_Really_Liked_the_Denver_Broncos.mp3" download>
+                        <img src="/static/images/global/download.png">
+                      </a>
                     </td>
                   </tr>
                   <tr>
@@ -102,7 +235,9 @@
                         data-src="/static/music/The_First_Noel.mp3"
                         data-title="텔레몬스터"
                         data-artist="Red Velvet (레드벨벳)">
-                      <img src="/static/images/global/download.png">
+                        <a href="/static/music/The_First_Noel.mp3" download>
+                          <img src="/static/images/global/download.png">
+                        </a>
                     </td>
                   </tr>
                 </tbody>
@@ -120,7 +255,8 @@
           <div class="playlist">
 
           </div>
-        </div>
+        </div> -->
+
       </div>
       <!-- Add Arrows -->
       <div class="swiper-button-next"></div>

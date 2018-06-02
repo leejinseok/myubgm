@@ -1,20 +1,11 @@
 <% include ./variables/index.ejs %>
   <% include ./partials/header.ejs %>
     <% include ./partials/nav.ejs %>
-
       <main id="fullpage" ng-controller="mainCtrl">
-
         <% include ./partials/index/about.ejs %>
           <% include ./partials/index/randomMusic.ejs %>
             <% include ./partials/index/category.ejs %>
               <% include ./partials/index/recommandation.ejs %>
-
-
       </main>
-
-      <div class="modal">
-        <div class="modal-content">
-
-        </div>
-      </div>
-      <% include ./partials/footer.ejs %>
+      <% include ./partials/index/modal.ejs %>
+        <% include ./partials/footer.ejs %>
