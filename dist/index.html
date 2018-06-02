@@ -56,9 +56,6 @@
       </li>
     </ul>
   </nav>
-
-
-
   <main id="fullpage" ng-controller="mainCtrl">
     <section class="section about">
       <div class="container center clearfix">
@@ -231,13 +228,14 @@
       </div>
     </section>
   </main>
-
   <div class="modal category">
+    <audio controls id="category-audio">
+      <source id="category-audio-source" src="">
+    </audio>
     <div class="swiper-container">
       <div class="swiper-container">
         <div class="swiper-wrapper">
           <div class="swiper-slide" id="slideGame">
-
             <div class="playlist">
               <div class="image-and-musicData clearfix">
                 <div class="col-6 image">
@@ -287,17 +285,14 @@
                   </h4>
 
                     <div class="playStatus">
-                      <audio controls id="category-audio">
-                        <source id="category-audio-source" src="">
-                      </audio>
                       <span id="category_currentTime">0:00</span>
                       <input type="range" id="category-seekbar" class="seekbar">
                       <span id="category_duration"></span>
                     </div>
 
                     <div class="play-and-download">
-                      <img src="/static/images/global/playbtn.png">
-                      <img src="/static/images/global/download.png">
+                      <img src="/static/images/global/playbtn.png" onclick="playCategoryMusic();">
+                      <img src="/static/images/global/download.png" onclick="downloadCategoryMusic();">
                     </div>
                   </div>
                 </div>
@@ -324,9 +319,22 @@
                       <td>Red Velvet (레드벨벳)</td>
                       <td>★</td>
                       <td>♥♥♥♥♡</td>
+                      <td class="playAndDownload">
+                        <img class="playbtn" src="/static/images/global/playbtn.png" data-src="/static/music/That_Kid_in_Fourth_Grade_Who_Really_Liked_the_Denver_Broncos.mp3" data-title="여시주의" data-artist="Red Velvet (레드벨벳)">
+                        <img src="/static/images/global/download.png">
+                      </td>
+                    </tr>
+                    <tr>
                       <td>
-                        <img src="/static/images/global/playbtn.png" alt="">
-                        <img src="/static/images/global/download.png" alt="">
+                        2
+                      </td>
+                      <td>텔레몬스터</td>
+                      <td>Red Velvet (레드벨벳)</td>
+                      <td>★</td>
+                      <td>♥♥♥♥♡</td>
+                      <td class="playAndDownload">
+                        <img class="playbtn" src="/static/images/global/playbtn.png" data-src="/static/music/The_First_Noel.mp3" data-title="텔레몬스터" data-artist="Red Velvet (레드벨벳)">
+                        <img src="/static/images/global/download.png">
                       </td>
                     </tr>
                   </tbody>
@@ -352,7 +360,4 @@
       </div>
     </div>
   </div>
-
-
-
 

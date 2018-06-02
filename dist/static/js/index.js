@@ -5,7 +5,20 @@ $(document).ready(function() {
   handleAudioRandomMusic(0);
   handleCategorySwiper();
   handleCategoryMusicClick();
+  handleCategoryPlayBtnClick();
 });
+
+function handleCategoryPlayBtnClick () {
+  var playBtn = $('.modal.category .playbtn');
+  var tableTr = $('.modal.category .playlist-table table tr');
+  playBtn.click(function () {
+    tableTr.removeClass('active');
+    $(this).parents('tr').addClass('active');
+
+    var data = $(this).data();
+    handleAudioCategoryMusic(data);
+  })
+}
 
 function handleCategoryModalSwiper () {
   var swiper = new Swiper('.modal.category .swiper-container', {
@@ -17,43 +30,52 @@ function handleCategoryModalSwiper () {
   });
 }
 
-var audioCategory = null;
-var seekbarCategory = null;
-function handleAudioCategoryMusic () {
+
+/**
+ * 카테고리 뮤직 셋업
+ */
+function handleAudioCategoryMusic (data) {
+  var audioCategory = null;
+  var seekbarCategory = null;
   var currentTimeSpan = $('.modal.category #category_currentTime');
   var duration = $('.modal.category #category_duration');
-  // var cover = $('modal.category img').eq(index);
+  var tableTr = $('.modal.category .playlist-table table tr');
 
-  // var data = cover.data();
-  // var src = data.musicSrc;
-  // var mainTitle = data.mainTitle;
-  // var subTitle = data.subTitle;
-  var src = '/static/music/That_Kid_in_Fourth_Grade_Who_Really_Liked_the_Denver_Broncos.mp3';
+  if (!data) {
+    tableTr.eq(1).addClass('active');
+  }
 
-  $('modal.category .wrapper-music-description .main-title').html('타이틀');
-  $('modal.category .wrapper-music-description .sub-title').html('서브타이틀');
+  data = data ? data : {
+    src: '/static/music/That_Kid_in_Fourth_Grade_Who_Really_Liked_the_Denver_Broncos.mp3',
+    title: '여시주의',
+    artist: 'Red Velvet (레드벨벳)'
+  };
+
+  $('.modal.category .playlist .image-and-musicData .musicData .audioPlay .title').html(data.title);
+  $('.modal.category .playlist .image-and-musicData .musicData .audioPlay .artist').html(data.artist);
 
   audioCategory = document.getElementById('category-audio');
   seekbarCategory = document.getElementById('category-seekbar');
 
-  audioCategory.src = src;
+  audioCategory.src = data.src;
   audioCategory.load();
-  // audio.play();
 
+  // 오디오 로딩
   audioCategory.onloadeddata = function () {
-    seekbarCategory.max = audio.duration;
+    seekbarCategory.max = audioCategory.duration;
     audioCategory.currentTime = 0;
     duration.html(secondSet(Math.floor(audioCategory.duration)));
     rangeInit();
   }
 
+  // 오디오 타임 변경
   audioCategory.ontimeupdate = function () {
     var current_time = this.currentTime;
     if (current_time == audioCategory.duration) { // 만약에 사운드가 끝나면 다시 처음으로
         this.currentTime = 0;
     }
 
-    currentTimeSpan.html(secondSet(current_time));
+    currentTimeSpan.html(secondSet(Math.floor(current_time)));
 
     seekbarCategory.value = current_time;
     var rangeInterval = Number(seekbarCategory.getAttribute('max') - seekbarCategory.getAttribute('min'));
@@ -64,12 +86,22 @@ function handleAudioCategoryMusic () {
     });
   }
 
+  // 오디오 타임변경 (임의로)
   seekbarCategory.onchange = function () {
     audioCategory.currentTime = this.value;
-    currentTimeSpan.html(secondSet(this.value));
+    currentTimeSpan.html(secondSet(Math.floor(this.value)));
   };
 }
 
+function playCategoryMusic () {
+  var audio = document.getElementById('category-audio');
+  audio.play();
+  console.log(audio);
+}
+
+/**
+ * 카테고리 모달 보여주기
+ */
 function handleCategoryMusicClick () {
   var img = $('section.category .container .swiper-container .swiper-wrapper .swiper-slide .wrapper div img');
   var modal = $('.modal.category');
@@ -86,6 +118,9 @@ function handleCategoryMusicClick () {
   });
 }
 
+/**
+ * 모달 감추기
+ */
 function handleBodyClickForHideModal () {
   $('html, body').click(function (e) {
     var targetId = e.target.id;
@@ -196,9 +231,10 @@ function writeStyle (obj) {
     inlineStyle.textContent = styleText;
 }
 
-var audio = null;
-var seekbar = null;
+
 function handleAudioRandomMusic (index) {
+  var audio = null;
+  var seekbar = null;
   var currentTimeSpan = $('section.randomMusic #randomMusic_currentTime');
   var duration = $('section.randomMusic #randomMusic_duration');
   var cover = $('section.randomMusic #carousel img').eq(index);
@@ -245,30 +281,6 @@ function handleAudioRandomMusic (index) {
     audio.currentTime = this.value;
     currentTimeSpan.html(secondSet(this.value));
   };
-}
-
-function togglePlay (status) {
-  var audioStatus = {
-    PLAY: 1,
-    STOP: -1,
-    PAUSE: 0
-  };
-
-  if (status === audioStatus.PLAY) {
-    audio.play();
-    return;
-  }
-
-  if (status === audioStatus.STOP) {
-    audio.pause();
-    audio.currentTime = 0;
-    return;
-  }
-
-  if (status === audioStatus.PAUSE) {
-    audio.pause();
-    return;
-  }
 }
 
 app.controller('mainCtrl', function ($scope) {
