@@ -1,4 +1,7 @@
 @import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+* {
+  box-shadow: 0 0 1px 0 red;
+}
 
 html,
 body {
@@ -9,6 +12,11 @@ body {
 .container {
   width: 1660px;
   padding: 20px;
+  box-sizing: border-box;
+}
+
+.hide {
+  display: none;
 }
 
 .center {
@@ -24,6 +32,7 @@ nav {
   top: 0;
   border-bottom: 1px solid #fff !important;
   z-index: 1;
+  background: red;
 }
 
 nav .wrapper-logo {
@@ -57,7 +66,6 @@ nav ul.menu li a.active {
 }
 
 /* 창크기 조절 */
-
 
 nav {
   height: 138px; 

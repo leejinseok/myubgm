@@ -348,6 +348,7 @@ modal category
 .modal.category .swiper-container .swiper-wrapper .swiper-slide .playlist .image-and-musicData .musicData .audioPlay .play-and-download img {
   margin-right: 3px;
   margin-left: 3px;
+  cursor: pointer;
 }
 
 .modal.category .swiper-container .swiper-wrapper .swiper-slide .playlist .playlist-table {
@@ -426,7 +427,7 @@ section.recommandation .container {
   border-radius: 30px;
   height: 600px;
   box-shadow: 0 1px 10px 1px #dbdbdb;
-  margin-top: 50px;
+  margin-top: 138px;
   padding-top: 72px;
 }
 

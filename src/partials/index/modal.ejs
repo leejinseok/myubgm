@@ -1,7 +1,5 @@
 <div class="modal category">
-  <audio controls id="category-audio">
-    <source id="category-audio-source" src="">
-  </audio>
+  
   <div class="swiper-container">
     <div class="swiper-container">
       <div class="swiper-wrapper">
@@ -9,6 +7,7 @@
         <% for (i = 0; i < categoryMusics.length; i++) { %>
         <div class="swiper-slide" id="<%= categoryMusics[i].id %>">
           <div class="playlist">
+            
             <div class="image-and-musicData clearfix">
               <div class="col-6 image">
                 <img src="/static/images/category/modal/<%= i + 1 %>.jpg">
@@ -43,13 +42,17 @@
                   </h4>
 
                   <div class="playStatus">
+                    <audio controls id="category-audio-<%= i + 1 %>">
+                      <source id="category-audio-source" src="">
+                    </audio>
                     <span id="category_currentTime">0:00</span>
-                    <input type="range" id="category-seekbar" class="seekbar category-seekbar" value="0">
+                    <input type="range" id="category-seekbar-<%= i + 1 %>" class="seekbar category-seekbar" value="0">
                     <span id="category_duration"></span>
                   </div>
 
                   <div class="play-and-download">
-                    <img src="/static/images/global/playbtn.png" onclick="playCategoryMusic();">
+                    <img src="/static/images/global/playbtn.png" class="play" onclick="playCategoryMusic(this, '<%= i + 1 %>');">
+                    <img src="/static/images/global/pause.png" class="pause hide" onclick="pauseCategoryMusic(this, '<%= i + 1 %>')">
                     <img src="/static/images/global/download.png" onclick="downloadCategoryMusic();">
                   </div>
                 </div>

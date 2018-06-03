@@ -3,20 +3,36 @@ $(document).ready(function() {
   handleCarousel();
   handleBodyClickForHideModal();
   handleAudioRandomMusic(0);
+  // Category
   handleCategorySwiper();
   handleCategoryMusicClick();
   handleCategoryPlayBtnClick();
+  handleCategoryModalPlayListEach();
 });
 
+function handleCategoryModalPlayListEach () {
+  var playList = $('.modal.category .playlist');
+  for(var i = 0; i < playList.length; i++) {
+    handleAudioCategoryMusic(null, i);
+  }
+}
+
+/**
+ * 카테고리 > 모달 > 플레이버튼 클릭
+ */
 function handleCategoryPlayBtnClick () {
   var playBtn = $('.modal.category .playbtn');
   var tableTr = $('.modal.category .playlist-table table tr');
   var slide = $('.modal.category .swiper-slider');
+  var playList = $('.modal.category .playlist');
   playBtn.click(function () {
     tableTr.removeClass('active');
     $(this).parents('tr').addClass('active');
     var data = $(this).data();
-    handleAudioCategoryMusic(data);
+    var index = data.index;
+    playList.eq(index).find('.play-and-download .pause').removeClass('hide');
+    playList.eq(index).find('.play-and-download .play').addClass('hide');
+    handleAudioCategoryMusic(data, index);
   })
 }
 
@@ -34,32 +50,43 @@ function handleCategoryModalSwiper () {
 /**
  * 카테고리 뮤직 셋업
  */
-function handleAudioCategoryMusic (data) {
-  var audioCategory = null;
-  var seekbarCategory = null;
-  var currentTimeSpan = $('.modal.category #category_currentTime');
-  var duration = $('.modal.category #category_duration');
-  var tableTr = $('.modal.category .playlist-table table tr');
+function handleAudioCategoryMusic (data, index) {
+  var init = false;
 
   if (!data) {
-    tableTr.eq(1).addClass('active');
+    // tableTr.eq(1).addClass('active');
+    init = true;
+    data = {
+      src: '/static/music/That_Kid_in_Fourth_Grade_Who_Really_Liked_the_Denver_Broncos.mp3',
+      title: '여시주의',
+      artist: 'Red Velvet (레드벨벳)'
+    };
   }
 
-  data = data ? data : {
-    src: '/static/music/That_Kid_in_Fourth_Grade_Who_Really_Liked_the_Denver_Broncos.mp3',
-    title: '여시주의',
-    artist: 'Red Velvet (레드벨벳)',
-    index: 0
-  };
+  data.index = index;
 
-  $('.modal.category .playlist .image-and-musicData .musicData .audioPlay .title').html(data.title);
-  $('.modal.category .playlist .image-and-musicData .musicData .audioPlay .artist').html(data.artist);
+  var playList = $('.modal.category .playlist').eq(data.index);
+  var audioCategory = null;
+  var seekbarCategory = null;
+  // var currentTimeSpan = $('.modal.category .playlist #category_currentTime');
+  // var duration = $('.modal.category .playlist #category_duration');
+  // var tableTr = $('.modal.category .playlist .playlist-table table tr');
+  
+  var currentTimeSpan = playList.find('#category_currentTime');
+  var duration = playList.find('#category_duration');
+  var tableTr = playList.find('.playlist-table table tr');
+  var currentMusicTitle = playList.find('.image-and-musicData .musicData .audioPlay .title');
+  var currentMusicArtist = playList.find('.image-and-musicData .musicData .audioPlay .artist');
 
-  audioCategory = document.getElementById('category-audio');
+  playList.find('.image-and-musicData .musicData .audioPlay .title').html(data.title);
+  playList.find('.image-and-musicData .musicData .audioPlay .artist').html(data.artist);
+  
+  audioCategory = document.getElementById('category-audio-' + Number(data.index + 1));
   seekbarCategory = document.getElementsByClassName('category-seekbar')[data.index];
 
   audioCategory.src = data.src;
   audioCategory.load();
+  if (!init) audioCategory.play();
 
   // 오디오 로딩
   audioCategory.onloadeddata = function () {
@@ -82,7 +109,7 @@ function handleAudioCategoryMusic (data) {
     var rangeInterval = Number(seekbarCategory.getAttribute('max') - seekbarCategory.getAttribute('min'));
     var rangePercent = (Number(seekbarCategory.value) + Math.abs(seekbarCategory.getAttribute('min'))) / rangeInterval * 100;
     writeStyle({
-        id: 'category-seekbar',
+        id: 'category-seekbar-' + data.index + 1,
         percent: rangePercent
     });
   }
@@ -94,10 +121,28 @@ function handleAudioCategoryMusic (data) {
   };
 }
 
-function playCategoryMusic () {
-  var audio = document.getElementById('category-audio');
+/**
+ * 카테고리 > 모달 > 플레이
+ * @param {*} el 
+ */
+function playCategoryMusic (el, index) {
+  var audio = document.getElementById('category-audio-' + index);
+  var el = $(el);
+  el.addClass('hide');
+  el.next().removeClass('hide');
   audio.play();
-  console.log(audio);
+}
+
+/**
+ * 카테고리 > 모달 > 일시정지
+ * @param {*} el 
+ */
+function pauseCategoryMusic (el, index) {
+  var audio = document.getElementById('category-audio-' + index);
+  var el = $(el);
+  el.addClass('hide');
+  el.prev().removeClass('hide');
+  audio.pause();
 }
 
 /**
@@ -109,7 +154,6 @@ function handleCategoryMusicClick () {
   img.click(function () {
     modal.addClass('active');
     handleCategoryModalSwiper();
-    handleAudioCategoryMusic();
     var setFullPageScrollDisable = setInterval(function () {
       if (isStopFullPageMouseWheel) {
         clearInterval(setFullPageScrollDisable);
