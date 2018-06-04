@@ -3,7 +3,7 @@ input[type=range]::-ms-track {
   height: 3px;
   
   /*remove bg colour from the track, we'll use ms-fill-lower and ms-fill-upper instead */
-  background: transparent;
+  background: none;
   
   /*leave room for the larger thumb to overflow with a transparent border */
   border-color: transparent;
@@ -11,6 +11,9 @@ input[type=range]::-ms-track {
 
   /*remove default tick marks*/
   color: transparent;
+}
+
+input[type=range]::-ms-track {
 }
 
 input[type=range]::-ms-fill-lower {

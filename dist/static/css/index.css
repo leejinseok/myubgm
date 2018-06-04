@@ -387,11 +387,14 @@ modal category
 }
 
 .modal.category .swiper-container .swiper-wrapper .swiper-slide .playlist .image-and-musicData .musicData .audioPlay .playStatus input[type=range] {
+  background: none;
   background-image: url('/static/images/global/sound-bar.png');
-  background-color: initial;
+  background-repeat: no-repeat;
   border-top: 0;
   border-bottom: 0;
-  background-size: cover;
+  background-size: 100% 3px;
+  background-color: transparent !important;
+  background-position: center;
 }
 
 .modal.category .swiper-container .swiper-wrapper .swiper-slide .playlist .image-and-musicData .musicData .audioPlay .playStatus input[type=range].ie {
