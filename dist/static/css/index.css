@@ -1,5 +1,18 @@
 /*
 =====================================
+Common
+=====================================
+*/
+
+section.randomMusic .wrapper-carousel,
+section.about .container,
+section.category .container .swiper-container,
+section.recommandation .container {
+  margin-top: 10%;
+}
+
+/*
+=====================================
 SECTION about
 =====================================
 */
@@ -9,7 +22,7 @@ section.about {
 }
 
 section.about .container {
-  margin-top: 239px;
+  /* margin-top: 239px; */
 }
 
 section.about .container .col-6 img.albums {
@@ -97,6 +110,20 @@ section.randomMusic .wrapper-player .time-machine {
   margin-top: 20px;
 }
 
+section.randomMusic .wrapper-player .time-machine .wrapper-range {
+  display: flex;
+  align-items: center;
+  height: 16px;
+  width: 300px;
+  position: relative;
+}
+
+section.randomMusic .wrapper-player .time-machine .wrapper-range input[type=range].ie {
+  position: absolute;
+  left: 0;
+  top: -15px;
+}
+
 section.randomMusic .wrapper-player .time-machine span {
   font-size: 12px;
   color: #cecece;
@@ -128,7 +155,7 @@ section.category .container {
 
 section.category .container .swiper-container {
   padding-top: 50px;
-  margin-top: 138px;
+  /* margin-top: 138px; */
   padding-right: 10px;
 }
 
@@ -224,6 +251,23 @@ section.category .container .swiper-container .swiper-wrapper .swiper-slide .wra
   float: left;
 }
 
+
+section.category .swiper-container {
+  pointer-events: none;
+}
+
+section.category .swiper-container .swiper-wrapper {
+  pointer-events: none;
+}
+
+section.category .swiper-container .swiper-wrapper .swiper-slide {
+  pointer-events: none;
+}
+
+section.category .swiper-container .swiper-wrapper .swiper-slide img {
+  pointer-events: visible;
+}
+
 /*
 =====================================
 modal category
@@ -263,6 +307,7 @@ modal category
 
 .modal.category .swiper-container .swiper-wrapper .swiper-slide .playlist .image-and-musicData .musicData {
   height: 415px;
+  position: relative;
 }
 
 .modal.category .swiper-container .swiper-wrapper .swiper-slide .playlist .image-and-musicData .musicData h2 {
@@ -333,6 +378,14 @@ modal category
   margin-left: 10px;
 }
 
+.modal.category .swiper-container .swiper-wrapper .swiper-slide .playlist .image-and-musicData .musicData .audioPlay .playStatus .wrapper-range {
+  display: flex;
+  align-items: center;
+  width: 300px;
+  height: 18px;
+  position: relative;
+}
+
 .modal.category .swiper-container .swiper-wrapper .swiper-slide .playlist .image-and-musicData .musicData .audioPlay .playStatus input[type=range] {
   background-image: url('/static/images/global/sound-bar.png');
   background-color: initial;
@@ -341,8 +394,25 @@ modal category
   background-size: cover;
 }
 
+.modal.category .swiper-container .swiper-wrapper .swiper-slide .playlist .image-and-musicData .musicData .audioPlay .playStatus input[type=range].ie {
+  position: absolute;
+  top: -16px;
+  background: transparent;
+  z-index: 0;
+}
+
+.modal.category .swiper-container .swiper-wrapper .swiper-slide .playlist .image-and-musicData .musicData .audioPlay .playStatus input[type=range].ie::-ms-track {
+  background: transparent;
+}
+
 .modal.category .swiper-container .swiper-wrapper .swiper-slide .playlist .image-and-musicData .musicData .audioPlay .play-and-download {
-  margin-top: 20px;
+  margin-top: 10px;
+}
+
+.modal.category .swiper-container .swiper-wrapper .swiper-slide .playlist .image-and-musicData .musicData .audioPlay .play-and-download.ie {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .modal.category .swiper-container .swiper-wrapper .swiper-slide .playlist .image-and-musicData .musicData .audioPlay .play-and-download img {
@@ -350,6 +420,7 @@ modal category
   margin-left: 3px;
   cursor: pointer;
 }
+
 
 .modal.category .swiper-container .swiper-wrapper .swiper-slide .playlist .playlist-table {
   
@@ -427,7 +498,7 @@ section.recommandation .container {
   border-radius: 30px;
   height: 600px;
   box-shadow: 0 1px 10px 1px #dbdbdb;
-  margin-top: 138px;
+  /* margin-top: 138px; */
   padding-top: 72px;
 }
 
@@ -448,7 +519,7 @@ section.recommandation .container > p {
 section.recommandation .container .wrapper {
   width: 100%;
   max-width: 100%;
-  margin-top: 100px;
+  margin-top: 40px;
 }
 
 section.recommandation .container .wrapper [class*=col] {
@@ -471,10 +542,24 @@ section.recommandation .container .wrapper [class*=col] img {
 
 
 section.randomMusic .wrapper-carousel {
-  margin-top: 138px;
+  /* margin-top: 138px; */
+  position: relative;
+}
+
+section.randomMusic .wrapper-carousel .right,
+section.randomMusic .wrapper-carousel .left {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+
+section.randomMusic .wrapper-carousel .right {
+  right: 0;
 }
  
 
 section.about .container {
-  margin-top: 138px;
+  /* margin-top: 138px; */
 } 

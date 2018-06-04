@@ -1,6 +1,6 @@
 input[type=range]::-ms-track {
   width: 300px;
-  height: 5px;
+  height: 3px;
   
   /*remove bg colour from the track, we'll use ms-fill-lower and ms-fill-upper instead */
   background: transparent;
@@ -12,24 +12,21 @@ input[type=range]::-ms-track {
   /*remove default tick marks*/
   color: transparent;
 }
+
 input[type=range]::-ms-fill-lower {
-  background: #777;
-  border-radius: 10px;
+  background: #ddd;
 }
+
 input[type=range]::-ms-fill-upper {
   background: #ddd;
-  border-radius: 10px;
 }
+
+
 input[type=range]::-ms-thumb {
   border: none;
-  height: 16px;
-  width: 16px;
+  height: 6px;
+  width: 6px;
   border-radius: 50%;
-  background: #888;
-}
-input[type=range]:focus::-ms-fill-lower {
-  background: #888;
-}
-input[type=range]:focus::-ms-fill-upper {
-  background: #ccc;
+  background: #fff;
+  border: 1px solid #888;
 }

@@ -1,6 +1,6 @@
 @import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
 * {
-  box-shadow: 0 0 1px 0 red;
+  /* box-shadow: 0 0 1px 0 red; */
 }
 
 html,
@@ -32,7 +32,6 @@ nav {
   top: 0;
   border-bottom: 1px solid #fff !important;
   z-index: 1;
-  background: red;
 }
 
 nav .wrapper-logo {
@@ -60,8 +59,8 @@ nav ul.menu li a {
   font-weight: 300;
 }
 
-nav ul.menu li a:hover,
-nav ul.menu li a.active {
+nav ul.menu li:hover a,
+nav ul.menu li.active a {
   color: #3a3a3a;
 }
 
@@ -70,11 +69,13 @@ nav ul.menu li a.active {
 nav {
   height: 138px; 
   padding: 0 !important;
+  height: 15%;
 }
 
 nav .wrapper-logo .logo {
   margin-top: 20px;
   width: 130px;
+  margin-top: 30px;
 }
 
 nav ul.menu {

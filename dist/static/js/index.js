@@ -3,12 +3,21 @@ $(document).ready(function() {
   handleCarousel();
   handleBodyClickForHideModal();
   handleAudioRandomMusic(0);
+  handleInputRangeRandomMusic();
   // Category
   handleCategorySwiper();
   handleCategoryMusicClick();
   handleCategoryPlayBtnClick();
   handleCategoryModalPlayListEach();
 });
+
+function handleInputRangeRandomMusic () {
+  var isIE = /*@cc_on!@*/false || !!document.documentMode;
+  if (isIE) {
+    $('input[type="range"]').addClass('ie');
+    $('.modal.category .playlist .image-and-musicData .musicData .audioPlay .play-and-download').addClass('ie');
+  }
+}
 
 function handleCategoryModalPlayListEach () {
   var playList = $('.modal.category .playlist');
@@ -194,6 +203,7 @@ function handleFullPage () {
     anchors: ['about', 'randomMusic', 'category', 'recommandation'],
     onLeave: function(index, nextIndex, direction){
       if ((nextIndex === 4 || nextIndex === 2) && isStopFullPageMouseWheel){
+        alert('hi');
         return false;
       }
     }
@@ -223,7 +233,7 @@ function carouselNext () {
 }
 
 function carouselPrev () {
-  carousel.pev();
+  carousel.prev();
 }
 
 
@@ -234,7 +244,7 @@ function rangeInit () {
     var DEBUG = true;
     var rangeSelector = document.querySelectorAll('[type=range]');
     document.body.appendChild(inlineStyle);
-    var eventname = new Event('input');
+    var eventname = new CustomEvent('input');
     for (var i = 0; i < rangeSelector.length; i++) {
       var item = rangeSelector[i];
       item.addEventListener('input', function () {
