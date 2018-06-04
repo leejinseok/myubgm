@@ -397,6 +397,15 @@ modal category
   background-position: center;
 }
 
+.modal.category .swiper-container .swiper-wrapper .swiper-slide .playlist .image-and-musicData .musicData .audioPlay .playStatus input[type=range]::-moz-range-track {
+  background: none !important;
+}
+
+.modal.category .swiper-container .swiper-wrapper .swiper-slide .playlist .image-and-musicData .musicData .audioPlay .playStatus input[type=range]::-webkit-slider-runnable-track {
+  background: none;
+}
+
+
 .modal.category .swiper-container .swiper-wrapper .swiper-slide .playlist .image-and-musicData .musicData .audioPlay .playStatus input[type=range].ie {
   position: absolute;
   top: -16px;
